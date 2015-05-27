@@ -30,7 +30,14 @@ app.factory('authService',
             logout: function() {
                 delete sessionStorage['currentUser'];
             },
-
+            
+            getCurrentUser : function() {
+                var userObject = sessionStorage['currentUser'];
+                if (userObject) {
+                    return JSON.parse(sessionStorage['currentUser']);
+                }
+            },
+            
             getAuthHeaders : function() {
                 var headers = {};
                 var currentUser = this.getCurrentUser();
