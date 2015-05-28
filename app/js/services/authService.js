@@ -27,8 +27,20 @@ app.factory('authService',
                 }).error(error);
             },
 
-            logout: function() {
-                delete sessionStorage['currentUser'];
+            logout: function(success, error) {
+                 var request = {
+                    method: 'POST',
+                    url: baseServiceUrl + '/api/users/logout',
+                    headers: this.getAuthHeaders()
+                };
+                $http(request).success(function(data) {
+                    delete sessionStorage['currentUser'];
+                    success(data);
+                }).error(error);
+            },
+            
+              isLoggedIn : function() {
+                return sessionStorage['currentUser'] != undefined;
             },
             
             getCurrentUser : function() {
@@ -42,7 +54,7 @@ app.factory('authService',
                 var headers = {};
                 var currentUser = this.getCurrentUser();
                 if (currentUser) {
-                    headers['Authorization'] = 'Bearer ' + currentUser.access_token;
+                    headers['Authorization'] = 'bearer ' + currentUser.access_token;
                 }
                 return headers;
             }
