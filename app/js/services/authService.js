@@ -39,8 +39,8 @@ app.factory('authService',
                 }).error(error);
             },
             
-              isLoggedIn : function() {
-                return sessionStorage['currentUser'] != undefined;
+            isLoggedIn : function() {
+                return sessionStorage['currentUser'] !== undefined;
             },
             
             getCurrentUser : function() {

@@ -2,7 +2,6 @@
 
 app.controller('AuthController',
     function ($scope, $location, authService, notifyService) {
-        $scope.authService = authService;
 
         $scope.isLoggedIn = function () {
             return authService.isLoggedIn();
@@ -51,3 +50,4 @@ app.controller('AuthController',
         };
     }
     );
+    
