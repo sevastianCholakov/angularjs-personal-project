@@ -139,6 +139,15 @@ app.factory('userService',
                 };
                 $http(request).success(success).error(error);
             },
+            // Search users
+            searchUserByName: function (searchTerm, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/search?searchTerm=' + searchTerm,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            }
         };
     }
     );
