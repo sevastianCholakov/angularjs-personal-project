@@ -49,7 +49,7 @@ app.factory('userService',
                 };
                 $http(request).success(success).error(error);
             },
-            //  Friends part
+            //  Friends requests part
             sendFriendRequest: function (user, success, error) {
                 var request = {
                     method: 'POST',
@@ -75,7 +75,70 @@ app.factory('userService',
                     headers: authService.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
-            }
+            },
+
+            getFriendRequests: function (success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/me/requests',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            //  Get Friends stuff part
+            getOwnFriends: function (success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/me/friends',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getOwnFriendsPreview: function (success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/me/friends/preview',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getFriendsPreviewOfFriends: function (user, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/' + user + '/friends/preview',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getFriendsDetailedFriendsList: function (user, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/' + user + '/friends',
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getNewsFeedPages: function (startPostId, pageSize, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/me/feed?StartPostId=' + startPostId + '&PageSize=' + pageSize,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getFriendWallByPages: function (user, pageSize, startPostId, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/' + user + '/wall?StartPostId=' + (startPostId ? startPostId : "") + '&PageSize=' + pageSize,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
         };
     }
     );
