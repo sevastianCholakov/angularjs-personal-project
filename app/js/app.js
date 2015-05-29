@@ -5,11 +5,15 @@ var app = angular.module('app', ['ngRoute', 'ui.bootstrap.pagination']);
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
 app.constant('pageSize', 5);
 
-app.config(['$routeProvider',function ($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider.when('/', {
         templateUrl: 'templates/home.html',
         controller: 'AuthController'
+    });
+
+    $routeProvider.when('/settings/edit/profile', {
+        templateUrl: 'templates/edit-profile.html',
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });

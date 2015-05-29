@@ -15,7 +15,8 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="form-group">
-									<input type="text" name="username" id="username" ng-model="userLogData.username" tabindex="1" class="form-control" placeholder="Username" value="">
+									<input type="text" name="username" id="username" ng-model="userLogData.username" tabindex="1" class="form-control" placeholder="Username"
+									value="">
 								</div>
 								<div class="form-group">
 									<input type="password" name="password" id="password" ng-model="userLogData.password" tabindex="2" class="form-control" placeholder="Password">
@@ -23,7 +24,8 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-sm-6 col-sm-offset-3">
-											<input type="submit" name="login-submit" ng-click="login(userLogData)" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											<input type="submit" name="login-submit" ng-click="login(userLogData)" id="login-submit" tabindex="4" class="form-control btn btn-login"
+											value="Log In">
 										</div>
 									</div>
 									<hr>
@@ -32,7 +34,8 @@
 								</div>
 								<div class="form-group">
 									<!-- username -->
-									<input type="text" name="username" ng-model="userData.username" tabindex="1" class="form-control" placeholder="Username" value="">
+									<input type="text" name="username" ng-model="userData.username" tabindex="1" class="form-control" placeholder="Username"
+									value="">
 								</div>
 								<div class="form-group">
 									<input type="password" name="password" ng-model="userData.password" tabindex="2" class="form-control" placeholder="Password">
@@ -44,21 +47,22 @@
 									<input type="text" name="name" ng-model="userData.name" tabindex="1" class="form-control" placeholder="Name" value="">
 								</div>
 								<div class="form-group">
-									<input type="email" name="email" ng-model="userData.email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+									<input type="email" name="email" ng-model="userData.email" tabindex="1" class="form-control" placeholder="Email Address"
+									value="">
 								</div>
 								<!-- radio buttons -->
 								<div class="form-group">
 									<div class="radio">
 										<label>
-											<input type="radio"  ng-model="userData.genre" name="genre">Male</label>
+											<input type="radio" ng-model="userData.genre" ng-value="2" name="genre">Male</label>
 									</div>
 									<div class="radio">
 										<label>
-											<input type="radio" ng-model="userData.genre" name="genre">Female</label>
+											<input type="radio" ng-model="userData.genre" ng-value="1" name="genre">Female</label>
 									</div>
 									<div class="radio">
 										<label>
-											<input type="radio" ng-model="userData.genre" name="genre">Other</label>
+											<input type="radio" ng-model="userData.genre" ng-value="0" name="genre">Other</label>
 									</div>
 								</div>
 								<!-- end of radio buttons -->
@@ -77,7 +81,6 @@
 		</div>
 	</div>
 </div>
-
 <div ng-if="isLoggedIn()">
 	<div>
 		<div ng-include="'templates/news-feed.html'"></div>
