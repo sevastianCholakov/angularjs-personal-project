@@ -2,7 +2,7 @@
 
 var app = angular.module('app', ['ngRoute', 'ui.bootstrap.pagination']);
 
-app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
+app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
 app.constant('pageSize', 5);
 
 app.config(['$routeProvider',function ($routeProvider) {

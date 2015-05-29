@@ -7,9 +7,9 @@ app.controller('AuthController',
             return authService.isLoggedIn();
         };
 
-        $scope.login = function (userData) {
-            if (authService.isLoggedIn()) {
-                authService.login(userData,
+        $scope.login = function (userLogData) {
+            if (!authService.isLoggedIn()) {
+                authService.login(userLogData,
                     function success() {
                         notifyService.showInfo("Login successful");
                         $location.path("/");
@@ -22,17 +22,16 @@ app.controller('AuthController',
         };
 
         $scope.register = function (registerData) {
-            if (!authService.isLoggedIn()) {
-                authService.register(registerData,
-                    function success() {
-                        notifyService.showInfo('Register successful');
-                        $location.path('/');
-                    },
-                    function error(err) {
-                        notifyService.showError('Register failed', err);
-                    }
-                    );
-            }
+            authService.register(registerData,
+                function success() {
+                    notifyService.showInfo('Register successful');
+                    $location.path('/');
+                },
+                function error(err) {
+                    notifyService.showError('Register failed', err);
+                }
+                );
+
         };
 
         $scope.logout = function () {
