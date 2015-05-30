@@ -2,7 +2,8 @@
 
 app.controller('AuthController',
     function ($scope, $location, authService, notifyService, defaultProfilePic, defaultCoverPic) {
-
+        $scope.authService = authService;
+        
         $scope.isLoggedIn = function () {
             return authService.isLoggedIn();
         };

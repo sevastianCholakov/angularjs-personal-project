@@ -1,0 +1,10 @@
+<div ng-if="authService.isLoggedIn()" class="container">
+    <div class="row" ng-init="loadDataAboutMe()">
+        <legend>{{userData.name}}</legend>
+        <div id="user-profile">
+            <img class="cover-image" ng-src="{{userData.coverImageData}}" alt="profile image" />
+            <br></br>
+            <img class="profile-image" ng-src="{{userData.profileImageData}}" alt="profile image" />
+        </div>
+    </div>
+</div>

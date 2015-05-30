@@ -7,9 +7,9 @@
             <ul>
                 <li>
                     <h3>
-                        <a href="user/{{request.user.username}}/wall"><img ng-src="{{request.user.profileImageData || defaultProfilePic}}" alt="profile picture" /></a>
+                        <a href="/#/users/{{request.user.username}}"><img ng-src="{{request.user.profileImageData || defaultProfilePic}}" alt="profile picture" /></a>
                         <p>
-                            <a href="user/{{request.user.username}}/wall"> {{request.user.name}} ({{request.user.username}})</a>
+                            <a href="/#/users/{{request.user.username}}"> {{request.user.name}} ({{request.user.username}})</a>
                         </p>
                     </h3>
                     <button class="btn btn-primary" ng-click="approveFriendRequest(request)" role="button">Approve</button>

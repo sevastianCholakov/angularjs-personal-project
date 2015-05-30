@@ -21,8 +21,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'templates/friend-requests.html',
     });
     
-      $routeProvider.when('/friends', {
+    $routeProvider.when('/friends', {
         templateUrl: 'templates/friends.html',
+    });
+    
+    $routeProvider.when('/users/:username', {
+        templateUrl: 'templates/user-profile.html',
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });

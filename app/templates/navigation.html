@@ -1,8 +1,7 @@
 <nav class="navbar container" id="navigation">
     <div class="row" ng-init="loadDataAboutMe()">
-        <a>{{userData.name}}</a>
         <div class="col-sm-12 col-sm-offset-3"></div>
-        <img src="" id="profile-pic" alt="profile pic" ng-src="{{userData.profileImageData}}" />
+        <a href="/#/users/{{authService.getCurrentUser().userName}}">{{userData.name}} <img src="" id="profile-pic" alt="profile pic" ng-src="{{userData.profileImageData}}" /></a>
         <a class="btn btn-primary" href="/#/">News Feed</a>
         <a class="btn btn-info" href="#/pendingFriendRequests">Friend requests</a>
         <a class="btn btn-success" href="#/profile">Edit Profile</a>

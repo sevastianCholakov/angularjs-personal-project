@@ -180,7 +180,7 @@ app.controller('UserController',
             if (authService.isLoggedIn()) {
                 userService.getOwnFriendsPreview(
                     function success(data) {
-                        data.friendsUrl = '/friends';
+                        data.friendsUrl = '/#/users/' + authService.getCurrentUser().userName + '/friends';
                         $scope.friendsPreview = data;
                     },
                     function error(err) {
