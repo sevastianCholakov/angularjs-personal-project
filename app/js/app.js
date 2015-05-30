@@ -20,6 +20,10 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/pendingFriendRequests', {
         templateUrl: 'templates/friend-requests.html',
     });
+    
+      $routeProvider.when('/friends', {
+        templateUrl: 'templates/friends.html',
+    });
 
     $routeProvider.otherwise({ redirectTo: '/' });
 }]);
