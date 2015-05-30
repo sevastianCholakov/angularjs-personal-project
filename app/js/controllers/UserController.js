@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('userController',
-    function ($scope, $location, $routeParams, $timeout, userService, authService, notifyService, pageSize) {
+app.controller('UserController',
+    function ($scope, $location, $routeParams, $timeout, userService, authService, notifyService, pageSize, defaultProfilePic, defaultCoverPic) {
         var startPostId;
         $scope.posts = [];
         $scope.showFriendRequest = false;
@@ -275,6 +275,48 @@ app.controller('userController',
                 $scope.showSearchResults = !$scope.showSearchResults;
             }, 500);
         };
+        
+        // Profile and cover pic change
+        $scope.selectProfilePic = function (fileInputField) {
+            delete $scope.userData.profileImageData;
+            var file = fileInputField.files[0];
+            if (file.type.match(/image\/.*/)) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    $scope.userData.profileImageData = reader.result;
+                    $(".profile-image").attr("src", reader.result);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                $(".profile-image-box").html("<p>File type not supported!</p>");
+            }
+        };
 
+        $scope.selectCoverPic = function (fileInputField) {
+            delete $scope.userData.coverImageData;
+            var file = fileInputField.files[0];
+            if (file.type.match(/image\/.*/)) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    $scope.userData.coverImageData = reader.result;
+                    $(".cover-image").attr("src", reader.result);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                $(".cover-image-box").html("<p>File type not supported!</p>");
+            }
+        };
+
+        $scope.removeProfileImage = function () {
+            delete $scope.userData.profileImageData;
+            $(".profile-image").attr("src", defaultProfilePic);
+            $scope.userData.profileImageData = defaultProfilePic;
+        };
+
+        $scope.removeCoverImage = function () {
+            delete $scope.userData.coverImageData;
+            $(".cover-image").attr("src", defaultCoverPic);
+            $scope.userData.coverImageData = defaultCoverPic;
+        };
     }
     );

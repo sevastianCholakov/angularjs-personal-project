@@ -1,0 +1,37 @@
+.profile-image-box > img {
+	height: 250px;
+	width: 250px;
+}
+.cover-image-box > img {
+	height: 250px;
+	width: 450px;
+}
+#profile-pic {
+	width:50px;
+	height: 50px;
+}
+#edit-profile-pic-container {
+	display:inline-block;
+	margin: 10px 20px 30px 10px;
+}
+#edit-profile-pic-container > label {
+	width:250px;	
+}
+#edit-profile-pic-container > a {
+	display:block;
+	width:250px;	
+}
+#edit-cover-container {
+	display:inline-block;
+	margin: 10px 20px 30px 10px;
+}
+#edit-cover-container > a {
+	display:block;
+	width: 450px
+}
+#edit-cover-container > label {
+	width: 450px
+}
+#edit-profile-params {
+	margin-left:10px;
+}

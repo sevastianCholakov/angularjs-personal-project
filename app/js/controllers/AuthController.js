@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('AuthController',
-    function ($scope, $location, authService, notifyService) {
+    function ($scope, $location, authService, notifyService, defaultProfilePic, defaultCoverPic) {
 
         $scope.isLoggedIn = function () {
             return authService.isLoggedIn();
@@ -25,6 +25,8 @@ app.controller('AuthController',
             authService.register(registerData,
                 function success() {
                     notifyService.showInfo('Register successful');
+                    $scope.userData.profileImageData = defaultProfilePic;
+                    $scope.userData.coverImageData = defaultCoverPic;
                     $location.path('/');
                 },
                 function error(err) {

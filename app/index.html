@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <title>Social Network</title>
 </head>
-<body>
+<body ng-controller="UserController">
     <header ng-if="isLoggedIn()" ng-include="'templates/navigation.html'">
         
     </header>
@@ -27,8 +27,10 @@
     <!-- Services -->
     <script src="js/services/notifyService.js"></script>
     <script src="js/services/authService.js"></script>
+    <script src="js/services/userService.js"></script>
         
     <!-- Controllers -->
     <script src="js/controllers/AuthController.js"></script>
+    <script src="js/controllers/UserController.js"></script>
 </body>
 </html>
