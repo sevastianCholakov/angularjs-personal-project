@@ -1,43 +1,49 @@
-<form ng-if="isLoggedIn()" name="editProfileForm" ng-submit="editProfile(userData)">
-    <fieldset ng-init="loadDataAboutMe()">
-        <legend>Edit Profile</legend>
-        <div id="edit-profile-pic-container">
-            <label for="profile-image" class="btn btn-primary">Upload Profile Photo</label>
-            <input type="file" id="profile-image" ng-hide="this" onchange="angular.element(this).scope().selectProfilePic(this)"
-            />
-            <div class="profile-image-box">
-                <!-- profile image -->
-                <img class="profile-image" ng-src="{{userData.profileImageData}}" alt="profile image" />
+<form ng-if="isLoggedIn()" name="editProfileForm" ng-submit="editProfile(userData)" class="container">
+    <div class="row">
+        <fieldset ng-init="loadDataAboutMe()">
+            <legend>Edit Profile</legend>
+            <div id="edit-profile-pic-container">
+                <label for="profile-image" class="btn btn-primary">Upload Profile Photo</label>
+                <input type="file" id="profile-image" ng-hide="this" onchange="angular.element(this).scope().selectProfilePic(this)"
+                />
+                <div class="profile-image-box">
+                    <!-- profile image -->
+                    <img class="profile-image" ng-src="{{userData.profileImageData}}" alt="profile image" />
+                </div>
+                <a ng-click="removeProfileImage()" class="btn btn-warning">Remove Profile Photo</a>
             </div>
-            <a ng-click="removeProfileImage()" class="btn btn-warning">Remove Profile Photo</a>
-        </div>
-        <div id="edit-cover-container">
-            <label for="cover-image" class="btn btn-primary">Upload Cover Photo</label>
-            <input type="file" id="cover-image" ng-hide="this" onchange="angular.element(this).scope().selectCoverPic(this)"
-            />
-            <div class="cover-image-box">
-                <!-- cover image -->
-                <img class="cover-image" ng-src="{{userData.coverImageData}}" alt="profile image" />
+            <div id="edit-cover-container">
+                <label for="cover-image" class="btn btn-primary">Upload Cover Photo</label>
+                <input type="file" id="cover-image" ng-hide="this" onchange="angular.element(this).scope().selectCoverPic(this)"
+                />
+                <div class="cover-image-box">
+                    <!-- cover image -->
+                    <img class="cover-image" ng-src="{{userData.coverImageData}}" alt="profile image" />
+                </div>
+                <a ng-click="removeCoverImage()" class="btn btn-warning">Remove Cover Photo</a>
             </div>
-            <a ng-click="removeCoverImage()" class="btn btn-warning">Remove Cover Photo</a>
-        </div>
-        <div id="edit-profile-params">
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" ng-model="userData.name" required/>
+            <!-- edit profile params -->
+            <div id="edit-profile-params">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name"  class="input-md form-control"ng-model="userData.name" required/>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" class="input-md form-control" ng-model="userData.email" placeholder="example@yahoo.com" required/>
+                </div>
+                <div>
+                    <label>Gender</label>
+                    <label>
+                        <input type="radio" name="gender" ng-model="userData.gender" ng-value="2" value="2" />Male</label>
+                    <label>
+                        <input type="radio" name="gender" ng-model="userData.gender" ng-value="1" value="1" />Female</label>
+                    <label>
+                        <input type="radio" name="gender" ng-model="userData.gender" ng-value="0" value="0" />Other</label>
+                </div>
+                <button type="submit" class="btn btn-success" ng-disabled="editProfileForm.$invalid">Save Changes</button>
+                <button href="/#/" class="btn btn-danger">Cancel</a>
             </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" ng-model="userData.email" placeholder="example@yahoo.com" required/>
-            </div>
-            <div>
-                <label>Gender</label>
-                <label><input type="radio" name="gender" ng-model="userData.gender" ng-value="2" value="2" />Male</label>
-                <label><input type="radio" name="gender" ng-model="userData.gender" ng-value="1" value="1" />Female</label>
-                <label><input type="radio" name="gender" ng-model="userData.gender" ng-value="0" value="0" />Other</label>
-            </div>
-            <button type="submit" class="btn btn-success" ng-disabled="editProfileForm.$invalid">Save Changes</button>
-            <a href="/#/" class="btn btn-danger">Cancel</a>
-        </div>
-    </fieldset>
+        </fieldset>
+    </div>
 </form>

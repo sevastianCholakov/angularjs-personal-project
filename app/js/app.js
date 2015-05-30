@@ -10,7 +10,11 @@ app.config(['$routeProvider', function ($routeProvider) {
     });
 
     $routeProvider.when('/settings/edit/profile', {
-        templateUrl: 'templates/edit-profile.html',
+        templateUrl: 'templates/edit-profile.html'
+    });
+
+    $routeProvider.when('/settings/edit/password', {
+        templateUrl: 'templates/change-password.html',
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });
