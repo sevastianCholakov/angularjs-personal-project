@@ -9,12 +9,16 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'AuthController'
     });
 
-    $routeProvider.when('/settings/edit/profile', {
+    $routeProvider.when('/profile', {
         templateUrl: 'templates/edit-profile.html'
     });
 
-    $routeProvider.when('/settings/edit/password', {
+    $routeProvider.when('/profile/password', {
         templateUrl: 'templates/change-password.html',
+    });
+    
+    $routeProvider.when('/pendingFriendRequests', {
+        templateUrl: 'templates/friend-requests.html',
     });
 
     $routeProvider.otherwise({ redirectTo: '/' });

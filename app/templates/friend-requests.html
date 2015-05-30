@@ -1,0 +1,21 @@
+<main ng-init="getFriendRequests()" class="container">
+    <div class="row">
+        <legend>
+            <h2>Friend requests ({{friendRequests.length}} total)</h2>
+        </legend>
+        <div ng-repeat="request in friendRequests">
+            <ul>
+                <li>
+                    <h3>
+                        <a href="user/{{request.user.username}}/wall"><img ng-src="{{request.user.profileImageData || defaultProfilePic}}" alt="profile picture" /></a>
+                        <p>
+                            <a href="user/{{request.user.username}}/wall"> {{request.user.name}} ({{request.user.username}})</a>
+                        </p>
+                    </h3>
+                    <button class="btn btn-primary" ng-click="approveFriendRequest(request)" role="button">Approve</button>
+                    <button class="btn btn-warning" ng-click="rejectFriendRequest(request)" role="button">Decline</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
