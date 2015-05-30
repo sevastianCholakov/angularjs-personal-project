@@ -5,5 +5,12 @@
     <a class="btn btn-success" href="#/settings/edit/profile">Edit Profile</a>
     <a class="btn btn-warning" href="#">Change password</a>
     <a class="btn btn-danger" href="#" ng-click="logout()">Logout</a>
-    <input type="search" placeholder="Search" />
+    <input type="text" id="search-bar" ng-model="searchTerm" ng-change="search(searchTerm)" placeholder="Search" ng-focus="showHideResults()" ng-blur="showHideResults()" />
+    
+    <div ng-show="showSearchResults" id="search-results">
+        <ul>
+            <li ng-repeat="user in searchResults">
+                <img ng-src="{{user.profileImageData || defaultProfilePic}}" id="search-pic" />{{user.name}}</li>
+        </ul>
+    </div>
 </nav>

@@ -1,3 +1,11 @@
+*{
+	box-sizing: border-box;
+	margin:0;
+	padding: 0;
+}
+#container {
+	margin: 0 auto;
+}
 .profile-image-box > img {
 	height: 250px;
 	width: 250px;
@@ -34,4 +42,21 @@
 }
 #edit-profile-params {
 	margin-left:10px;
+}
+#search-pic {
+	width:40px;
+	height:40px;
+}
+#search-bar {
+	margin-left:20%;
+}
+#search-results {
+	position:absolute;
+	left:72%;
+}
+#search-results ul{
+	list-style-type: none;
+}
+#search-results ul li{
+	width:500px;
 }

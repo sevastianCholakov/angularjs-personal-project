@@ -7,6 +7,7 @@ app.controller('UserController',
         $scope.showFriendRequest = false;
         $scope.isOwnNewsFeed = $location.path() === '/';
         $scope.isOwnWall = authService.getCurrentUser() === $routeParams['username'];
+        $scope.defaultProfilePic = defaultProfilePic;
 
         $scope.loadDataAboutMe = function () {
             if (authService.isLoggedIn()) {
