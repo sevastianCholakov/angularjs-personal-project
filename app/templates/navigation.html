@@ -1,9 +1,9 @@
 <nav class="navbar container" id="navigation">
     <div class="row" ng-init="loadDataAboutMe()">
-        <div class="col-sm-12 col-sm-offset-3"></div>
+        <div class="col-sm-12 col-sm-offset-3" ng-init="getFriendRequests()"></div>
         <a href="/#/users/{{authService.getCurrentUser().userName}}">{{userData.name}} <img src="" id="profile-pic" alt="profile pic" ng-src="{{userData.profileImageData}}" /></a>
         <a class="btn btn-primary" href="/#/">News Feed</a>
-        <a class="btn btn-info" href="#/pendingFriendRequests">Friend requests</a>
+        <a class="btn btn-info" href="#/pendingFriendRequests">Friend requests ({{friendRequests.length}})</a>
         <a class="btn btn-success" href="#/profile">Edit Profile</a>
         <a class="btn btn-warning" href="#/profile/password">Change password</a>
         <a class="btn " href="#/friends">Friends</a>
@@ -13,7 +13,7 @@
         <div ng-show="showSearchResults" id="search-results">
             <ul>
                 <li ng-repeat="user in searchResults">
-                    <img ng-src="{{user.profileImageData || defaultProfilePic}}" id="search-pic" />{{user.name}}</li>
+                    <a href="#/users/{{user.username}}"> <img ng-src="{{user.profileImageData || defaultProfilePic}}" id="search-pic" />{{user.name}}</li> </a>
             </ul>
         </div>
     </div>

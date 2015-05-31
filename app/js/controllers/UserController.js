@@ -6,7 +6,7 @@ app.controller('UserController',
         $scope.posts = [];
         $scope.showFriendRequest = false;
         $scope.isOwnNewsFeed = $location.path() === '/';
-        $scope.isOwnWall = authService.getCurrentUser() === $routeParams['username'];
+        $scope.isOwnWall = authService.getCurrentUser().userName === $routeParams['username'];
         $scope.defaultProfilePic = defaultProfilePic;
 
         $scope.loadDataAboutMe = function () {
@@ -37,7 +37,7 @@ app.controller('UserController',
                             }
                         }
 
-                        if ($scope.userFullData.isFriend && $location.path() === '/user/' + $routeParams['username'] + '/wall/') {
+                        if ($scope.userFullData.isFriend && $location.path() === '/user/' + $routeParams['username']) {
                             $scope.loadUserFriendsPreview();
                         }
                     },
@@ -194,7 +194,7 @@ app.controller('UserController',
             if (authService.isLoggedIn()) {
                 userService.getFriendsPreviewOfFriends($routeParams['username'],
                     function success(data) {
-                        data.friendsUrl = '/user/' + $routeParams['username'] + '/friends/';
+                        data.friendsUrl = '/users/' + $routeParams['username'] + '/friends/';
                         $scope.friendsPreview = data;
                     },
                     function error(err) {
