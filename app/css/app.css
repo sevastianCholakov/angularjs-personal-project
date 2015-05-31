@@ -94,6 +94,11 @@ img {
 	margin-top:10px;
 	width:200px;
 }
+.user-profile a {
+	display:block;
+	width:150px;
+	margin-top:5px;
+}
 .user-profile .profile-image {
 	width:150px;
 	height:150px;

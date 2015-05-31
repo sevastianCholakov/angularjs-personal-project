@@ -6,7 +6,10 @@ app.controller('UserController',
         $scope.posts = [];
         $scope.showFriendRequest = false;
         $scope.isOwnNewsFeed = $location.path() === '/';
-        $scope.isOwnWall = authService.getCurrentUser().userName === $routeParams['username'];
+        if (authService.isLoggedIn()) {
+            $scope.isOwnWall = authService.getCurrentUser().userName === $routeParams['username'];
+        }
+
         $scope.defaultProfilePic = defaultProfilePic;
         $scope.defaultCoverPic = defaultCoverPic;
 

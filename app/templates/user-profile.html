@@ -8,6 +8,7 @@
                 <br></br>
                 <img class="profile-image" class="profile-image" ng-src="{{userData.profileImageData || defaultProfilePic}}" alt="profile image"
                 />
+                <a ng-init="loadOwnFriends()" class="btn btn-primary" href="#/friends">Friends ({{friendsList.length}})</a>
             </div>
         </div>
     </div>
