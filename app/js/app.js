@@ -16,15 +16,19 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/profile/password', {
         templateUrl: 'templates/change-password.html',
     });
-    
+
     $routeProvider.when('/pendingFriendRequests', {
         templateUrl: 'templates/friend-requests.html',
     });
-    
-    $routeProvider.when('/friends', {
+
+    $routeProvider.when('/myfriends', {
         templateUrl: 'templates/friends.html',
     });
-    
+
+    $routeProvider.when('/users/:username/friends', {
+        templateUrl: 'templates/friends-of-friends.html',
+    });
+
     $routeProvider.when('/users/:username', {
         templateUrl: 'templates/user-profile.html',
     });

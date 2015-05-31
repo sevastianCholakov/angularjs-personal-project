@@ -12,7 +12,7 @@
         <div ng-show="showSearchResults" id="search-results">
             <ul>
                 <li ng-repeat="user in searchResults">
-                    <a href="#/users/{{user.username}}"> <img ng-src="{{user.profileImageData || defaultProfilePic}}" id="search-pic" />{{user.name}}</li> </a>
+                    <a href="#/users/{{user.username}}"> <img ng-src="{{user.profileImageData || defaultProfilePic}}" id="search-pic" /> {{user.name}}</li> </a>
             </ul>
         </div>
     </div>
