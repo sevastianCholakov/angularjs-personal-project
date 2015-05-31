@@ -14,7 +14,7 @@
                 <ul>
                     <li class="friends" ng-repeat="friend in friendsPreview.friends | limitTo: 6">
                         <a href="#/users/{{friend.username}}">
-                        <img ng-src="{{friend.profileImageData || defaultProfilePic}}"/>{{friend.name}}</a>
+                        <img ng-src="{{friend.profileImageData || defaultProfilePic}}"/> {{friend.name}}</a>
                     </li>
                 </ul>
             </div>
@@ -25,6 +25,7 @@
     <div ng-if="!isOwnWall">
         <div class="row">
             <legend>{{userFullData.name}} ({{userFullData.username}})
+                <!-- user status -->
                 <button class="btn btn-primary" ng-if="userFullData.status === 'invite'"
                 ng-click="sendFriendRequest(userFullData)">Send friend request</button>
                 <button class="btn btn-primary" ng-if="userFullData.status === 'pending'" disabled>Friend request pending</button>
@@ -35,7 +36,20 @@
                 <br></br>
                 <img class="profile-image" class="profile-image" ng-src="{{userFullData.profileImageData || defaultProfilePic}}" alt="profile image"
                 />
-                <a ng-if="userFullData.status === 'friend'" ng-init="loadFriendsDetailedFriendsList()" class="btn btn-primary" href="/#/users/{{userFullData.username}}/friends">Friends ({{friends.length}})</a>
+                <!-- friend view -->
+                <div ng-if="userFullData.status === 'friend'">
+                    
+                    <div ng-init="loadFriendsPreviewOfFriends()" class="last-friends">
+                        <a ng-if="userFullData.status === 'friend'" ng-init="loadFriendsDetailedFriendsList()" class="btn btn-primary" href="/#/users/{{userFullData.username}}/friends">Friends ({{friends.length}})</a>
+                        <ul>
+                            <li class="friends" ng-repeat="friend in friendsPreview.friends | limitTo: 6">
+                                <a href="#/users/{{friend.username}}">
+                        <img ng-src="{{friend.profileImageData || defaultProfilePic}}"/> {{friend.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End of friend view -->
             </div>
         </div>
     </div>
