@@ -3,9 +3,7 @@
 app.controller('UserController',
     function ($scope, $location, $routeParams, $timeout, userService, authService, notifyService, pageSize, defaultProfilePic, defaultCoverPic) {
         var startPostId;
-        $scope.posts = [];
-        $scope.showFriendRequest = false;
-        $scope.isOwnNewsFeed = $location.path() === '/';
+        
         if (authService.isLoggedIn()) {
             $scope.isOwnWall = authService.getCurrentUser().userName === $routeParams['username'];
         }
