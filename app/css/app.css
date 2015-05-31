@@ -102,7 +102,7 @@ img {
 .user-profile .profile-image {
 	width:150px;
 	height:150px;
-	margin-top:1%;
+	margin-top:2%;
 }
 .user-profile .profile-cover {
 	width:50%;
@@ -116,4 +116,29 @@ img {
 	width:200px;
 	padding:20px;
 	border-radius:20px;
+}
+.last-friends {
+	margin-top:10%;
+	border:1px solid #BFDFF7;
+	width:20%;
+	min-width:150px;
+	border-radius:20px;
+	padding:20px;
+	float:right;
+	margin-right:18%;
+}
+.last-friends a{
+	width:100%;
+	min-width:100px;
+	margin-bottom:5%;
+}
+.last-friends img{
+	width:50px;
+}
+.all-friends {
+	float:left;
+	padding:25px;
+}
+.all-friends img {
+	width:150px;
 }

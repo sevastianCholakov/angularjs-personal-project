@@ -8,7 +8,15 @@
                 <br></br>
                 <img class="profile-image" class="profile-image" ng-src="{{userData.profileImageData || defaultProfilePic}}" alt="profile image"
                 />
+            </div>
+            <div ng-init="loadOwnFriendsPreview()" class="last-friends">
                 <a ng-init="loadOwnFriends()" class="btn btn-primary" href="#/myfriends">Friends ({{friendsList.length}})</a>
+                <ul>
+                    <li class="friends" ng-repeat="friend in friendsPreview.friends | limitTo: 6">
+                        <a href="#/users/{{friend.username}}">
+                        <img ng-src="{{friend.profileImageData || defaultProfilePic}}"/>{{friend.name}}</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -27,8 +35,7 @@
                 <br></br>
                 <img class="profile-image" class="profile-image" ng-src="{{userFullData.profileImageData || defaultProfilePic}}" alt="profile image"
                 />
-                <a ng-if="userFullData.status === 'friend'" ng-init="loadFriendsDetailedFriendsList()" class="btn btn-primary"
-                 href="/#/users/{{userFullData.username}}/friends">Friends ({{friends.length}})</a>
+                <a ng-if="userFullData.status === 'friend'" ng-init="loadFriendsDetailedFriendsList()" class="btn btn-primary" href="/#/users/{{userFullData.username}}/friends">Friends ({{friends.length}})</a>
             </div>
         </div>
     </div>
