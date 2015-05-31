@@ -5,7 +5,7 @@
         </legend>
         <div ng-repeat="request in friendRequests">
             <ul>
-                <li>
+                <li class="friend-item">
                     <h3>
                         <a href="/#/users/{{request.user.username}}"><img ng-src="{{request.user.profileImageData || defaultProfilePic}}" alt="profile picture" /></a>
                         <p>

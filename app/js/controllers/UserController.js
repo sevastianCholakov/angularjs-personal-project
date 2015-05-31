@@ -8,6 +8,7 @@ app.controller('UserController',
         $scope.isOwnNewsFeed = $location.path() === '/';
         $scope.isOwnWall = authService.getCurrentUser().userName === $routeParams['username'];
         $scope.defaultProfilePic = defaultProfilePic;
+        $scope.defaultCoverPic = defaultCoverPic;
 
         $scope.loadDataAboutMe = function () {
             if (authService.isLoggedIn()) {
@@ -60,7 +61,7 @@ app.controller('UserController',
                             status: false
                         };
 
-                        if (authService.getCurrentUser() !== data.username) {
+                        if (authService.getCurrentUser().userName !== data.username) {
                             if (data.isFriend) {
                                 $scope.previewData.status = 'friend';
                             } else if (data.hasPendingRequest) {

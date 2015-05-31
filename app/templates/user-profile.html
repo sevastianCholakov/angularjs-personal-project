@@ -1,14 +1,33 @@
-<div ng-if="authService.isLoggedIn()" class="container" ng-controller="UserController">
+<div ng-if="authService.isLoggedIn()" class="container" ng-controller="UserController" ng-init="loadUserFullData()">
     <!-- Own Wall -->
     <div ng-if="isOwnWall">
         <div class="row" ng-init="loadDataAboutMe()">
-            <legend>{{userData.name}}</legend>
-            <div id="user-profile">
-                <img class="cover-image" ng-src="{{userData.coverImageData}}" alt="profile image" />
+            <legend>Me ({{userData.name}})</legend>
+            <div class="user-profile">
+                <img class="profile-cover" ng-src="{{userData.coverImageData || defaultCoverPic}}" alt="cover image" />
                 <br></br>
-                <img class="profile-image" ng-src="{{userData.profileImageData}}" alt="profile image" />
+                <img class="profile-image" class="profile-image" ng-src="{{userData.profileImageData || defaultProfilePic}}" alt="profile image"
+                />
             </div>
         </div>
     </div>
     <!-- End Of Own Wall -->
+    <!-- users -->
+    <div ng-if="!isOwnWall">
+        <div class="row">
+            <legend>{{userFullData.name}} ({{userFullData.username}})
+                <button class="btn btn-primary" ng-if="userFullData.status === 'invite'"
+                ng-click="sendFriendRequest(userFullData)">Send friend request</button>
+                <button class="btn btn-primary" ng-if="userFullData.status === 'pending'" disabled>Friend request pending</button>
+                <button class="btn btn-primary" ng-if="userFullData.status === 'friend'" disabled>Friend</button>
+            </legend>
+            <div class="user-profile">
+                <img class="profile-cover" ng-src="{{userFullData.coverImageData || defaultCoverPic}}" alt="cover image" />
+                <br></br>
+                <img class="profile-image" class="profile-image" ng-src="{{userFullData.profileImageData || defaultProfilePic}}" alt="profile image"
+                />
+            </div>
+        </div>
+    </div>
+    <!-- users -->
 </div>

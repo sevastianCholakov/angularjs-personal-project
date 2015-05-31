@@ -1,9 +1,11 @@
 <div ng-init="loadOwnFriends()" class="container">
 	<legend>Friends</legend>
-	<div ng-repeat="friend in friendsList" class="row">
-		<a href="/#/users/{{friend.username}}">
+	<ul ng-repeat="friend in friendsList" class="row">
+		<li class="friend-item">
+			<a href="/#/users/{{friend.username}}">
             <p>{{friend.name}} ({{friend.username}})</p>
             <img ng-src="{{friend.profileImageData || 'resources/defaultProfileImage.png'}}" title="{{friend.name}}" class="mid-thumbnail"/>
         </a>
-	</div>
+		</li>
+	</ul>
 </div>
